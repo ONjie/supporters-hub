@@ -4,6 +4,9 @@ on:
   push:
     branches: [ master ]
 
+permissions:
+  contents: write 
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,7 +17,7 @@ jobs:
           channel: 'stable'
       
       - run: flutter pub get
-      - run: flutter build web --release --base-href "/supporters_hub/" # Use your repo name
+      - run: flutter build web --release --base-href "/supporters-hub/"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
